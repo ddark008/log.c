@@ -38,13 +38,13 @@ enum { LOG_TRACE, LOG_DEBUG, LOG_INFO, LOG_WARN, LOG_ERROR, LOG_FATAL };
 #define log_error(...) log_log(LOG_ERROR, __FILE__, __LINE__, __VA_ARGS__)
 #define log_fatal(...) log_log(LOG_FATAL, __FILE__, __LINE__, __VA_ARGS__)
 
-const char* LOG_EXPORT log_level_string(int level);
-void LOG_EXPORT log_set_lock(log_LockFn fn, void *udata);
-void LOG_EXPORT log_set_level(int level);
-void LOG_EXPORT log_set_quiet(bool enable);
-int LOG_EXPORT log_add_callback(log_LogFn fn, void *udata, int level);
-int LOG_EXPORT log_add_fp(FILE *fp, int level);
+LOG_EXPORT const char* log_level_string(int level);
+LOG_EXPORT void log_set_lock(log_LockFn fn, void *udata);
+LOG_EXPORT void log_set_level(int level);
+LOG_EXPORT void log_set_quiet(bool enable);
+LOG_EXPORT int log_add_callback(log_LogFn fn, void *udata, int level);
+LOG_EXPORT int log_add_fp(FILE *fp, int level);
 
-void LOG_EXPORT log_log(int level, const char *file, int line, const char *fmt, ...);
+LOG_EXPORT void log_log(int level, const char *file, int line, const char *fmt, ...);
 
 #endif
